@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdul Alim - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+/>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#111827", // Dark Gray-Blue for text
+              secondary: "#4B5563", // Medium Gray for subtitles/body
+              accent: "#2563EB", // A professional blue for headers and links
+              "accent-light": "#EFF6FF", // A very light blue for backgrounds/pills
+              rule: "#D1D5DB", // Light gray for horizontal rules
+            },
+            fontFamily: {
+              sans: [
+                "Inter",
+                "ui-sans-serif",
+                "system-ui",
+                "-apple-system",
+                "Segoe UI",
+                "Roboto",
+                "Noto Sans",
+                "Ubuntu",
+                "Cantarell",
+                "Helvetica Neue",
+                "Arial",
+                "sans-serif",
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 1.25cm;
+      }
+
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
+      :root {
+        --section-gap: 20px;
+        --line-thickness: 1px;
+      }
+    </style>
+  </head>
+
+  <body
+    class="font-sans text-[12px] leading-relaxed text-secondary antialiased"
+  >
+    <main class="mx-auto max-w-[880px]">
+      <header>
+        <div class="w-full">
+          <h1 class="text-3xl font-extrabold tracking-tight text-primary">
+            Abdul Alim
+          </h1>
+          <h2 class="mt-1 text-base font-semibold text-muted">
+            Frontend Developer
+          </h2>
+
+          <ul
+            aria-label="Contact information"
+            class="mt-2 flex flex-row flex-wrap items-center gap-x-4 gap-y-1 text-xs text-primary"
+          >
+            <li>
+              <a
+                href="tel:+880-1849114997"
+                class="group flex items-center gap-1.5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                <span class="group-hover:underline">+880-1849114997</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:abdulalimmisuk@gmail.com"
+                class="group flex items-center gap-1.5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span class="group-hover:underline"
+                  >abdulalimmisuk@gmail.com</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/abdul-alim-ab465633a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-1.5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span class="group-hover:underline"
+                  >linkedin.com/in/abdul-alim</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/AbdulAlim35"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-1.5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.4-.9 2.8v3.5"
+                  ></path>
+                </svg>
+                <span class="group-hover:underline"
+                  >github.com/AbdulAlim35</span
+                >
+              </a>
+            </li>
+          </ul>
+
+          <p class="mt-3 text-[12px] leading-relaxed">
+            As a Frontend Developer, I have a solid foundation in HTML, CSS,
+            JavaScript, and React. I focus on building responsive and
+            user-friendly web applications using Tailwind CSS and React Router
+            for smooth navigation. I have developed projects like Blog
+            Management, Restaurant Management, and Education Management Systems
+            with REST API integration for dynamic data handling. I am skilled in
+            Git/GitHub for version control and always eager to learn,
+            collaborate, and contribute to impactful development projects.
+          </p>
+        </div>
+      </header>
+
+      <section style="margin-top: var(--section-gap)">
+        <h2>Skills</h2>
+        <div class="rule"></div>
+
+        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+          <div>
+            <h3
+              class="inline-block rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase text-headergray mb-2"
+            >
+              Frontend Development
+            </h3>
+            <ul class="list-disc list-outside ml-4 space-y-1 text-secondary">
+              <li>
+                Proficient in HTML5 CSS3 modern JavaScript (ES6+), jQuery.
+              </li>
+              <li>Building responsive UIs with Tailwind CSS React.js.</li>
+              <li>State management using Redux, Context API.</li>
+              <li>Form Handling: React Hook Form.</li>
+              <li>Routing: React Router DOM.</li>
+              <li>Notifications & Icons: React Toastify, React Icons.</li>
+              <li>
+                Accessibility (WCAG), performance optimization, SEO best
+                practices.
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <div>
+              <h3
+                class="inline-block rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase text-headergray mb-2"
+              >
+                Tools & Practices
+              </h3>
+              <ul class="list-disc list-outside ml-4 space-y-1 text-secondary">
+                <li>Git & GitHub for version control and collaboration.</li>
+                <li>VS Code, Chrome DevTools.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3
+                class="inline-block rounded-md px-2.5 py-0.5 text-xs font-semibold uppercase text-headergray mb-2"
+              >
+                Backend & Databases
+              </h3>
+              <ul class="list-disc list-outside ml-4 space-y-1 text-secondary">
+                <li>Appwrite, Firebase.</li>
+                <li>REST API integration.</li>
+                <li>REST API integration using Axios.</li>
+                <li>API testing and debugging with Postman.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--section-gap)">
+        <h2>Personal Projects</h2>
+        <div class="rule"></div>
+        <div class="mt-2 space-y-4">
+          <article>
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-primary">
+                Education Management Dashboard
+              </h3>
+              <div class="flex items-center gap-3 text-xs">
+                <a
+                  href="https://github.com/AbdulAlim35/Education-Management-System-EMS-"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  > Github
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.4-.9 2.8v3.5"
+                  ></path>
+                </svg>
+                </a>
+                <a
+                  href="https://educations-management.netlify.app/"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  >Live Link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="mt-1">
+              Built a single-page frontend dashboard using React with a scalable
+              folder structure following SOLID principles. Developed a
+              responsive admin panel to manage students, teachers, classes, and
+              subjects. Integrated REST APIs for CRUD operations.
+            </p>
+            <p class="mt-1.5 text-xs text-secondary">
+              <span class="font-semibold text-primary">Tech:</span>
+              Tailwind CSS, React, React Router, REST API Integration.
+            </p>
+          </article>
+
+          <article>
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-primary">
+                Add & Dine — Restaurant Management Website
+              </h3>
+              <div class="flex items-center gap-3 text-xs">
+                <a
+                  href="https://github.com/AbdulAlim35/Adda-Dine-Restaurant"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  >Github
+                 
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.4-.9 2.8v3.5"
+                  ></path>
+                </svg>
+                </a>
+                <a
+                  href="https://resturentsystem.netlify.app/"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  >Live Link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="mt-1">
+              Engineered a fully responsive SPA with an intuitive Admin Panel to
+              manage menu items, gallery visuals, and table reservations in real
+              time. Crafted a modern, accessible UI with Tailwind CSS.
+            </p>
+            <p class="mt-1.5 text-xs text-secondary">
+              <span class="font-semibold text-primary">Tech:</span>
+              Tailwind CSS, React, React Router, Appwrite.
+            </p>
+          </article>
+
+          <article>
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-primary">
+                BrightEra — Blog Management Platform
+              </h3>
+              <div class="flex items-center gap-3 text-xs">
+                <a
+                  href="https://github.com/AbdulAlim35/BrightEra-Blog"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  >Github
+                 <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-secondary group-hover:underline"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6.1-.6.5-.9 1.4-.9 2.8v3.5"
+                  ></path>
+                </svg>
+                </a>
+                <a
+                  href="https://brightera.netlify.app/"
+                  target="_blank"
+                  class="flex items-center gap-1 font-medium text-secondary hover:underline"
+                  >Live Link
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="mt-1">
+              Developed a responsive SPA using React Router for dynamic
+              rendering. Implemented a full Admin Panel for real-time CRUD
+              management of categorized posts and integrated search
+              functionality.
+            </p>
+            <p class="mt-1.5 text-xs text-secondary">
+              <span class="font-semibold text-primary">Tech:</span>
+              Tailwind CSS, React, React Router, Appwrite.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section style="margin-top: var(--section-gap)">
+        <h2>Education</h2>
+        <div class="rule"></div>
+        <div class="mt-2 grid grid-cols-2 gap-4">
+          <div>
+            <h3 class="font-semibold text-primary">
+              B.Sc. in Computer Science & Engineering (CSE)
+            </h3>
+            <p class="text-xs">Dhaka International University</p>
+            <p class="text-xs text-secondary">
+              Running (Expected Graduation: 2026)
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-primary">
+              Diploma in Computer Science & Engineering (CSE)
+            </h3>
+            <p class="text-xs">Institute of Computer Science & Technology</p>
+            <p class="text-xs text-secondary">CGPA: 3.53 / 4.00</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  const applySectionHeadings = () => {
+    document.querySelectorAll("section > h2").forEach((h2) => {
+      h2.classList.add(
+        "text-sm",
+        "font-bold",
+        "tracking-widest",
+        "text-muted",
+        "uppercase",
+        "mb-2"
+      );
+    });
+    document
+      .querySelectorAll("section > .rule")
+      .forEach((div) => div.classList.add("h-[1px]", "bg-rule", "w-full"));
+  };
+  document.addEventListener("DOMContentLoaded", applySectionHeadings);
+</script>
