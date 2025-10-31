@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Alim - Frontend Developer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Set scroll padding to offset the sticky header */
+        html {
+            scroll-padding-top: 70px;
+        }
+
+        /* Gradient text for hero */
+        .hero-text-gradient {
+            background-image: linear-gradient(to right, #3b82f6, #16a34a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .dark .hero-text-gradient {
+             background-image: linear-gradient(to right, #60a5fa, #4ade80);
+        }
+
+        /* Section Title Style */
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-center mb-12;
+        }
+
+        /* Custom scrollbar (optional, but a nice touch) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: #cbd5e1; /* gray-300 */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            z-index: 0;
+        }
+        .dark .timeline::after {
+            background-color: #475569; /* gray-600 */
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #ffffff; /* white */
+            border: 3px solid #3b82f6; /* blue-500 */
+            top: 2.5rem; /* Aligns with the card's p-8 padding */
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .dark .timeline-item::after {
+            background-color: #0f172a; /* dark:bg-gray-950 */
+            border-color: #60a5fa; /* blue-400 */
+        }
+        .timeline-left {
+            left: 0;
+        }
+        .timeline-right {
+            left: 50%;
+        }
+        .timeline-right::after {
+            left: -8px;
+        }
+        .timeline-content {
+            @apply bg-white dark:bg-gray-900 p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800;
+        }
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            .timeline-item::after {
+                left: 12px;
+            }
+            .timeline-left, .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-200 selection:bg-blue-200 dark:selection:bg-blue-800 transition-colors duration-300">
+
+    <!-- 
+      =================================
+      HEADER & NAVIGATION
+      =================================
+    -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-sm dark:shadow-gray-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[70px]">
+            <!-- Logo / Name -->
+            <a href="#" class="text-2xl font-bold hero-text-gradient">
+                Abdul Alim
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#education" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Education</a>
+                <a href="#contact" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                    <!-- Moon Icon -->
+                    <i id="theme-toggle-dark-icon" class="fa-solid fa-moon w-5 h-5 hidden"></i>
+                    <!-- Sun Icon -->
+                    <i id="theme-toggle-light-icon" class="fa-solid fa-sun w-5 h-5 hidden"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                <!-- Menu Icon -->
+                <i class="fa-solid fa-bars w-6 h-6"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden absolute top-[70px] right-0 w-64 bg-white dark:bg-gray-900 shadow-xl rounded-l-lg border-l border-b border-gray-200 dark:border-gray-700 md:hidden">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#about" class="mobile-nav-link font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="mobile-nav-link font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="mobile-nav-link font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#education" class="mobile-nav-link font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Education</a>
+                <a href="#contact" class="mobile-nav-link font-medium text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
+                
+                <!-- Dark Mode Toggle (in mobile) -->
+                <button id="theme-toggle-mobile" class="flex items-center justify-between w-full p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                    <span class="font-medium text-gray-600 dark:text-gray-300">Toggle Theme</span>
+                    <!-- Icons will be swapped by JS -->
+                    <i id="theme-toggle-dark-icon-mobile" class="fa-solid fa-moon w-5 h-5"></i>
+                    <i id="theme-toggle-light-icon-mobile" class="fa-solid fa-sun w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+          =================================
+          HERO SECTION
+          =================================
+        -->
+        <section id="home" class="min-h-[calc(100vh-70px)] flex items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center py-16 md:py-0">
+                <!-- Hero Text -->
+                <div class="text-center md:text-left">
+                    <span class="text-lg font-medium text-blue-600 dark:text-blue-400">Hello, I'm</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold my-3 hero-text-gradient">
+                        Abdul Alim
+                    </h1>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-6">
+                        Frontend Developer
+                    </h2>
+                    
+                    <!-- Social Links -->
+                    <div class="flex justify-center md:justify-start space-x-5 mt-8">
+                        <a href="https://linkedin.com/in/abdul-alim" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+                           class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors">
+                            <i class="fa-brands fa-linkedin w-8 h-8"></i>
+                        </a>
+                        <a href="https://github.com/AbdulAlim35" target="_blank" rel="noopener noreferrer" title="GitHub"
+                           class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-github w-8 h-8"></i>
+                        </a>
+                        <a href="mailto:abdulalimmisuk@gmail.com" title="Email"
+                           class="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors">
+                            <i class="fa-solid fa-envelope w-8 h-8"></i>
+                        </a>
+                        <a href="tel:+8801849114997" title="Phone"
+                           class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-500 transition-colors">
+                            <i class="fa-solid fa-phone w-8 h-8"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual (Code block) -->
+                <div class="bg-gray-900 dark:bg-gray-900/50 border border-gray-700 dark:border-gray-700 rounded-lg shadow-xl p-6 font-mono text-sm hidden md:block">
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <code class="text-green-400"><span class="text-blue-400">const</span> abdulAlim = {</code><br>
+                    <code class="text-white pl-4">  title: <span class="text-yellow-300">'Frontend Developer'</span>,</code><br>
+                    <code class="text-white pl-4">  location: <span class="text-yellow-300">'Bangladesh'</span>,</code><br>
+                    <code class="text-white pl-4">  focus: [ <span class="text-yellow-300">'React'</span>, <span class="text-yellow-300">'Tailwind CSS'</span>, <span class="text-yellow-300">'Responsive UI'</span> ],</code><br>
+                    <code class="text-white pl-4">  skills: <span class="text-blue-400">new</span> <span class="text-green-400">Set</span>([ <span class="text-yellow-300">'HTML'</span>, <span class="text-yellow-300">'CSS'</span>, <span class="text-yellow-300">'JS'</span>, <span class="text-yellow-300">'React'</span>, <span class="text-yellow-300">...</span> ]),</code><br>
+                    <code class="text-white pl-4">  eagerTo: <span class="text-yellow-300">'learn & collaborate'</span>,</code><br>
+                    <code class="text-white pl-4">  build: <span class="text-purple-400">(idea)</span> => {</code><br>
+                    <code class="text-white pl-8">    <span class="text-blue-400">return</span> <span class="text-yellow-300">`✨ ${idea} brought to life ✨`</span>;</code><br>
+                    <code class="text-white pl-4">  }</code><br>
+                    <code class="text-green-400">};</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          ABOUT ME SECTION (New Design)
+          =================================
+        -->
+        <section id="about" class="py-24 bg-gray-100 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title hero-text-gradient">About Me</h2>
+                
+                <!-- Modern text container -->
+                <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-10 md:p-12">
+                    <div class="text-center">
+                        <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                            As a Frontend Developer, I have a solid foundation in HTML, CSS, JavaScript, and React. 
+                            I focus on building responsive and user-friendly web applications using Tailwind CSS and 
+                            React Router for smooth navigation.
+                        </p>
+                        <p class="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                            I have developed projects like Blog Management, 
+                            Restaurant Management, and Education Management Systems with REST API integration for 
+                            dynamic data handling. I am skilled in Git/GitHub for version control and always eager 
+                            to learn, collaborate, and contribute to impactful development projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          PROJECTS SECTION
+          =================================
+        -->
+        <section id="projects" class="py-24 bg-gray-100 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title hero-text-gradient">Personal Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project 1: Education Management -->
+                    <div class="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <div class="p-6 flex-grow text-center">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Education Management Dashboard</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                A responsive admin panel to manage students, teachers, classes, and subjects, built with a scalable folder structure and integrated REST APIs for CRUD operations.
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">React</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200">Tailwind CSS</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">React Router</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-200">REST API</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 flex justify-center space-x-4 border-t border-gray-100 dark:border-gray-700">
+                            <a href="https://github.com/AbdulAlimMisuk/Edu-Man-Dashboard" target="_blank" rel="noopener noreferrer" class="project-link">
+                                GitHub
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                            <a href="https://edu-man-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Add & Dine -->
+                    <div class="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <div class="p-6 flex-grow text-center">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Add & Dine — Restaurant Management</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                A fully responsive SPA with an admin panel to manage menu items, gallery visuals, and table reservations in real-time, using Appwrite for the backend.
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">React</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200">Tailwind CSS</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">React Router</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">Appwrite</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 flex justify-center space-x-4 border-t border-gray-100 dark:border-gray-700">
+                            <a href="https://github.com/AbdulAlimMisuk/Add-Dine-Restaurant" target="_blank" rel="noopener noreferrer" class="project-link">
+                                GitHub
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                            <a href="https://add-dine.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: BrightEra -->
+                    <div class="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <div class="p-6 flex-grow text-center">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">BrightEra — Blog Management Platform</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                                A responsive SPA using React Router for dynamic rendering. Features a full admin panel for real-time CRUD management of categorized posts and search functionality.
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">React</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200">Tailwind CSS</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">React Router</span>
+                                <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">Appwrite</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 flex justify-center space-x-4 border-t border-gray-100 dark:border-gray-700">
+                            <a href="https://github.com/AbdulAlimMisuk/BrightEra-Blog-Platform" target="_blank" rel="noopener noreferrer" class="project-link">
+                                GitHub
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                            <a href="https://bright-era.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          EDUCATION SECTION
+          =================================
+        -->
+        <section id="education" class="py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title hero-text-gradient">Education</h2>
+                
+                <div class="timeline">
+                    <!-- Timeline Item 1: B.Sc. -->
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content text-center">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">B.Sc. in Computer Science & Engineering</h3>
+                            <p class="text-lg font-medium text-blue-600 dark:text-blue-400 mt-1">Dhaka International University</p>
+                            <p class="text-gray-600 dark:text-gray-400 italic mt-2">Running (Expected Graduation: 2026)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2: Diploma -->
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content text-center">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Diploma in Computer Science & Engineering</h3>
+                            <p class="text-lg font-medium text-blue-600 dark:text-blue-400 mt-1">Institute of Computer Science & Technology</p>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium mt-2">CGPA: 3.53 / 4.00</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          CONTACT SECTION (Now part of footer)
+          =================================
+        -->
+        <section id="contact" class="py-0 bg-gray-100 dark:bg-gray-900">
+            <!-- This section is intentionally left blank as a scroll-to anchor. -->
+            <!-- The content has been moved to the new footer. -->
+        </section>
+
+    </main>
+
+    <!-- 
+      =================================
+      NEW FOOTER
+      =================================
+    -->
+    <footer class="bg-gray-900 dark:bg-black text-gray-300 pt-16 md:pt-24 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Part 1: "Get in Touch" -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-10">
+                    I'm always open to discussing new projects, creative ideas, or opportunities. 
+                    Feel free to reach out!
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:abdulalimmisuk@gmail.com" class="contact-button bg-blue-600 hover:bg-blue-700 text-white">
+                        <i class="fa-solid fa-envelope w-5 h-5 mr-2"></i>
+                        Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/abdul-alim" target="_blank" rel="noopener noreferrer" class="contact-button bg-gray-700 hover:bg-gray-800 text-white">
+                        <i class="fa-brands fa-linkedin w-5 h-5 mr-2"></i>
+                        View LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="border-t border-gray-700 w-1/2 mx-auto mb-12" />
+
+            <!-- Part 2: Socials -->
+            <div class="flex justify-center items-center space-x-8 mb-10">
+                <a href="https://linkedin.com/in/abdul-alim" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+                   class="text-gray-400 hover:text-blue-500 transform hover:scale-125 transition-all">
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/AbdulAlim35" target="_blank" rel="noopener noreferrer" title="GitHub"
+                   class="text-gray-400 hover:text-white transform hover:scale-125 transition-all">
+                    <i class="fa-brands fa-github fa-2x"></i>
+                </a>
+                <a href="mailto:abdulalimmisuk@gmail.com" title="Email"
+                   class="text-gray-400 hover:text-red-500 transform hover:scale-125 transition-all">
+                    <i class="fa-solid fa-envelope fa-2x"></i>
+                </a>
+                <a href="tel:+8801849114997" title="Phone"
+                   class="text-gray-400 hover:text-green-500 transform hover:scale-125 transition-all">
+                    <i class="fa-solid fa-phone fa-2x"></i>
+                </a>
+            </div>
+
+            <!-- Part 3: Copyright -->
+            <div class="text-center text-gray-500">
+                <p class="text-sm">Built with <i class="fa-solid fa-heart text-red-500"></i> using Tailwind CSS & Font Awesome</p>
+                <p class="text-sm mt-1">&copy; <span id="current-year"></span> Abdul Alim. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      =================================
+      SCROLL-TO-TOP BUTTON
+      =================================
+    -->
+    <button id="scroll-to-top" class="hidden fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950 transition-all duration-300">
+        <i class="fa-solid fa-arrow-up w-6 h-6"></i>
+    </button>
+
+
+    <!-- 
+      =================================
+      JAVASCRIPT
+      =================================
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Theme (Dark/Light Mode) Toggle ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+            
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const darkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+            const lightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+            const htmlEl = document.documentElement;
+
+            // Function to update icon visibility
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    darkIconMobile.classList.add('hidden');
+                    lightIconMobile.classList.remove('hidden');
+                } else {
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    darkIconMobile.classList.remove('hidden');
+                    lightIconMobile.classList.add('hidden');
+                }
+            }
+
+            // Function to set theme
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    htmlEl.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    htmlEl.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+                updateIcons(theme);
+            }
+
+            // Get theme from local storage or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+            setTheme(initialTheme);
+            
+            // Toggle theme on button click
+            const toggleFn = () => {
+                const currentTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            };
+            
+            themeToggleBtn.addEventListener('click', toggleFn);
+            themeToggleMobileBtn.addEventListener('click', toggleFn);
+
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Smooth Scrolling for Nav Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Don't prevent default for the hero logo link
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Scroll-to-Top Button ---
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // --- Dynamic Year for Footer ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Apply custom Tailwind styles for reusable classes ---
+            // This is a common pattern to keep HTML clean
+            const styleSheet = document.createElement("style");
+            styleSheet.innerText = `
+                .skill-pill {
+                    @apply px-4 py-1.5 rounded-full font-medium text-sm;
+                }
+                .project-link {
+                    @apply inline-flex items-center font-medium text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
+                }
+                .contact-button {
+                    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        });
+    </script>
+</body>
+</html>
+
